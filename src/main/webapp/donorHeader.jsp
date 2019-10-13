@@ -12,10 +12,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="DonorHome.jsp">Fund Transaction</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="donorfundingDetails.jsp">Fund Details</a>
+                        </li>
                         <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        <a class="dropdown-item" href="#"onclick="logout()">Logout</a>
                     </div>
                 </li>
                 </div>

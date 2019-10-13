@@ -21,7 +21,7 @@
                                 RequestId
                             </div>
                         </div>
-                        <input type="number" name="requestId" id="requestId" class="form-control" placeholder="requestId" required>
+                        <input type="number" min="1" name="requestId" id="requestId" class="form-control" placeholder="requestId" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -47,7 +47,7 @@
                                 Amount(Rs)
                             </div>
                         </div>
-                        <input type="number"min=1 name="amount" id="amount" class="form-control" placeholder="amount" required>
+                        <input type="number"min="1" name="amount" id="amount" class="form-control" placeholder="amount" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -57,7 +57,7 @@
                                 Expire date
                             </div>
                         </div>
-                        <input type="date" name="expireDate" id="expireDate" class="form-control" required>
+                        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-outline-secondary">Send</button>
@@ -77,8 +77,9 @@
     let date = $('#expireDate').val();
     var formData = "requestId="+requestId+"&fundType="+fundType+"&amount="+amount+"&date="+date;
     var url = "http://localhost:8080/charity-api/Requestupdateservlet?" + formData;
+    //var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Requestupdateservlet?" + formData;
     console.log(url);
-    $.get(url,function(response){
+    $.getJSON(url,function(response){
        alert('Update success!'); 
        window.location.replace('AdminHome.jsp');
     });

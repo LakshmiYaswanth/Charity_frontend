@@ -9,11 +9,12 @@
                          <li class="nav-item active">
                     <a class="nav-link" href="index.jsp">Home</a>
                          </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Donorlogin.jsp">Donor Login</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="adminLogin.jsp">Admin Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Donorlogin.jsp">Donor Login</a>
                         </li>
                 </div>
             </nav>

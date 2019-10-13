@@ -8,6 +8,7 @@
     <title>Donor Login</title>
 </head>
 <body class="bg-light">
+<form >
          <jsp:include page="header.jsp"></jsp:include>
     <div class="row justify-content-center align-items-center" style="height: 80vh;margin:0;">
         <div class="col-md-6 col-lg-3 text-center">
@@ -33,33 +34,36 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-outline-secondary" onclick="donorLogin()">Login</button>
-
-            <p><a href="DonorRegister.jsp">Forget password</a></p>
+           <input type="reset" class="btn btn-outline-danger"/>
+            <p><a href="DonorRegister.jsp">Forgot password</a></p>
         </div>
     </div>
+    </form>
      <script src="asserts/js/jquery-3.4.1.min.js"></script>
   	<script src="asserts/js/bootstrap.min.js"></script>
     <script>
     
 function donorLogin()
         {
+	event.preventDefault();
             var name = $('#name').val();
             var password = $('#password').val();
             var formData = "name="+name+"&password="+password;
             var url = "http://localhost:8080/charity-api/Donorloginservlet?"+formData;
+            //var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Donorloginservlet?"+formData
                         $.getJSON(url,function(data){
                        	 console.log(data);
                        	 //resData = JSON.parse(data);
                        	 resData = data;
                     	 console.log("resData=>"+resData);
-                         if(resData.isloggedin == false) {
+                         if(resData.isloggedIn == false) {
                         	 $('input[type="text"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
                         	 $('input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 5px #00F5FF"});
                         	 alert("Invalid username or password");
                         	 }else if(resData.isloggedIn == true){
                             alert("donor Login success");
                                window.location.replace('DonorHome.jsp');
-                                localStorage.setItem('Donor_Data',JSON.stringify(data));
+                                localStorage.setItem('Donor_Data',JSON.stringify(resData));
                         	 }
                        	 
                         });

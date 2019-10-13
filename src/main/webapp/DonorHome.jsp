@@ -19,12 +19,10 @@
 				<option value="MEDICAL">Medical</option>
 				<option value="OTHERS">Others</option>
 			</select>
-			<!--  <div class="row" id="transaction" style="display:none;">
+			<form>
             	<div class="col">
-            		
             		<button onclick=""></button>
             	</div>
-            </div>-->
 			<table class="table">
 				<thead>
 					<tr>
@@ -39,22 +37,18 @@
 
 				</tbody>
 			</table>
+			</form>
 		</div>
 	</div>
 
 	<script src="asserts/js/jquery-3.4.1.min.js"></script>
 	<script src="asserts/js/bootstrap.min.js"></script>
 	<script>
-	console.log();
-	function logout()
-  	{
-  	  	console.log('logout success!');
-  	  	localStorage.clear();
-  	  	window.location.replace("Donorlogin.jsp");
-  	}
+
 	
 		function donate(requestId) {
 			/* Get donor details */
+			event.preventDefault();
 			var data = localStorage.getItem('Donor_Data');
 			//var donorObj=data;
 		    var donarObj = JSON.parse(data);
@@ -65,24 +59,27 @@
 			console.log("request_Id=>" + requestId);
 			console.log("donor_Id=>" + donarObj.donorId);
 			var formData ="amountfunded=" + amount + "&request_Id=" + requestId + "&donor_Id=" + donarObj.donorId;
-			var url = "http://localhost:8080/charity-api/Transactionservlet?"
-					+ formData;
+			var url = "http://localhost:8080/charity-api/Transactionservlet?"+ formData;
+			//var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Transactionservlet?"+ formData;
 			$.get(url, function(data) {
 				console.log('transaction success!');
 				console.log(data);
 				alert('transaction success!');
+				window.location.replace('donorfundingDetails.jsp');
 			});
 
 		}
 
 		function ListRequest() {
-
+			event.preventDefault();
 			var Fund_Type = $('#Fund_Type').val();
 			var formData = "Fund_type=" + Fund_Type;
 			var url = "http://localhost:8080/charity-api/Requesttypeservlet?" + formData;
+			//var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Requesttypeservlet?" + formData;
 			console.log(url);
-			$.get(url,function(datas) {
-								var res=JSON.parse(datas);
+			$.getJSON(url,function(datas) {
+								//var res=JSON.parse(datas);
+								var res= datas;
 								console.log(datas);
 								var tbody = $('#requestTable');
 								var content = "";
@@ -105,6 +102,7 @@
 								}
 								console.log(content);
 								tbody.html(content);
+								 
 							});
 		}
 	</script>

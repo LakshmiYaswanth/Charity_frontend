@@ -17,10 +17,10 @@
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            Name
+                            UserName
                         </div>
                     </div>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" required/>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Name"required/>
                 </div>
             </div>
             <div class="form-group">
@@ -30,7 +30,7 @@
                             Password
                         </div>
                     </div>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password"required>
                 </div>
             </div>
             <button type="submit" class="btn btn-outline-secondary" onclick="adminLogin()">Login</button>
@@ -58,16 +58,15 @@ function adminLogin()
             	}else{
             var formData ="name="+name+"&password="+password;
             var url="http://localhost:8080/charity-api/Adminloginservlet?"+formData;
+            //var url= "http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Adminloginservlet?"+formData;
             	 $.getJSON(url,function(data){
                 	 resData = (data);
                 	 console.log("resData=>"+resData);
                      if(resData.isLoggedin == false) {
                     	 $('input[type="text"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
-                    	 $('input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 5px #00F5FF"});
+                    	 $('input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 3px red"});
                     	 alert("Invalid username or password");
                     	 }else if(resData.isLoggedin == true){
-	                    	 //$("form")[0].reset();
-	                    	 //$('input[type="text"],input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 5px #00F5FF"});
 	                    	 alert("Admin Login success");
 	                    	 window.location.replace('AdminHome.jsp');
 	                         localStorage.setItem('admin_Data',JSON.stringify(data));

@@ -47,7 +47,7 @@
                                 Expire date
                             </div>
                         </div>
-                        <input type="date" name="expireDate" id="expireDate" class="form-control" required>
+                        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-outline-secondary">Send</button>
@@ -62,14 +62,14 @@
   	{
   	  	console.log('logout success!');
   	  	localStorage.clear();
-  	  	window.location.replace(" index.jsp");
+  	  	window.location.replace("index.jsp");
   	}
   	function request()
     {
   	    event.preventDefault();
     	var data = localStorage.getItem('admin_Data');
 		var adminData = JSON.parse(data);
-		var id = JSON.stringify(adminData);
+		//var id = JSON.stringify(adminData);
     	var AdminId = adminData.adminId;
         var FundType = $('#FundType').val();
         var amount = $('#amount').val();
@@ -81,6 +81,7 @@
         var formData = "adminId="+AdminId+"&fundType="+FundType+"&amount="+amount+"&date="+date;
         console.log(formData);
         var url = "http://localhost:8080/charity-api/Requestservlet?"+formData;
+        //var url= "http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Requestservlet?"+formData;
         $.get(url,function(data){
             console.log(data)
             alert('fund request success');

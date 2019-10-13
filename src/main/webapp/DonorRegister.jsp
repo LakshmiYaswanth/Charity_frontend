@@ -12,7 +12,7 @@
     <div class="row justify-content-center align-items-center" style="height: 80vh;margin:0;">
         <div class="col-md-6 col-lg-3 text-center">
             <h5 class="text-secondary" style="padding: 10px 0">Donor Register</h5>
-            <form>
+            <form onsubmit="donorRegister()">
                 <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -20,7 +20,7 @@
                                     Name
                                 </div>
                             </div>
-                            <input type="text" name="name" id="username" class="form-control" placeholder="Enter Your Name" pattern="[A-Za-z]{1,32}" title="Name contains letters only" required/>
+                             <input type="text" name="name" id="name" pattern="[A-Za-z]{1,10}$" class="form-control" title="Enter only alphabets" placeholder="name" required/>
                         </div>
                     </div>
                 <div class="form-group">
@@ -30,7 +30,7 @@
                                 Email
                             </div>
                         </div>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid email id"  required/>
+                        <input type="email" name="email" id="email" class="form-control"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Entre in email format" placeholder="Email" required/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -40,7 +40,7 @@
                                 Password
                             </div>
                         </div>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" pattern="[A-Za-z]{1,32}" title="password contains letters only"  required/>
+                     <input type="password" name="password" id="password" class="form-control" pattern="[A-Za-z]{1,10}$" title="Enter only alphabets" placeholder="Password" required/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -50,22 +50,21 @@
                                     Age
                                 </div>
                             </div>
-                            <input type="number" min=1 max=120  name="Age" id="Age" class="form-control" placeholder="Age" title="Age contains numbers only!give valid number between 1 to 120" required/>
+                            <input type="number" min="10" max="100"  name="Age" id="Age" class="form-control" placeholder="Age" required/>
                         </div>
                     </div>
-                <button onclick="donorRegister()" type="submit" class="btn btn-outline-secondary">Enter</button>
+                 <button type="submit"class="btn btn-outline-secondary">Register</button>
+                <input type="reset" class="btn btn-outline-danger"/>
+                </form>
                 <p>Already using this App?Sign in <a href="Donorlogin.jsp">Click here</a>.</p>
-             </form>
         </div>
     </div>
     
     <script src="asserts/js/jquery-3.4.1.min.js"></script>
   	<script src="asserts/js/bootstrap.min.js"></script>
 <script>
-    $(function(){
-        console.log('this is jquery!');
-        
-    });
+
+
 function donorRegister()
 {
 	event.preventDefault();
@@ -75,8 +74,9 @@ function donorRegister()
     let Age = $('#Age').val();
     var formData = "name="+name+"&email="+email+"&password="+password+"&Age="+Age;
     var url = "http://localhost:8080/charity-api/Donorregisterservlet?" + formData;
+    //var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Donorregisterservlet?" + formData;
     console.log(url);
-    $.get(url,function(response){
+    $.getJSON(url,function(response){
        alert('register success!'); 
        window.location.replace('Donorlogin.jsp');
     });

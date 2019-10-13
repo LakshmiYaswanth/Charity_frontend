@@ -32,9 +32,11 @@
 	$(function (){
         console.log('This is jquery!');
         let url = "http://localhost:8080/charity-api/RequestlistServlet";
-        $.get(url,(res)=>{
+        //let url="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/RequestlistServlet";
+        $.getJSON(url,(res)=>{
         	 console.log("res=>"+res);
-             var data = JSON.parse(res);
+             //var data = JSON.parse(res);
+             var data=res;
              let requestList = "";
              for(let don of data)
              {
