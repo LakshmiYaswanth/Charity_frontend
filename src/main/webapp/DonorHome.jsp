@@ -12,7 +12,7 @@
 	<jsp:include page="donorHeader.jsp"></jsp:include>
 	<div class="row justify-content-center">
 		<div class="col-md-8">
-			<select id="Fund_Type" class="form-control" onchange="ListRequest()">
+			<select id="fundType" class="form-control" onchange="ListRequest()">
 				<option>--SELECT--</option>
 				<option value="CLOTHS">CLOTHS</option>
 				<option value="FOOD">Food</option>
@@ -44,42 +44,38 @@
 	<script src="asserts/js/jquery-3.4.1.min.js"></script>
 	<script src="asserts/js/bootstrap.min.js"></script>
 	<script>
-
-	
+	function logout()
+	{
+	  	console.log('logout success!');
+	  	localStorage.clear();
+	  	window.location.replace("index.jsp");
+	}
 		function donate(requestId) {
-			/* Get donor details */
 			event.preventDefault();
 			var data = localStorage.getItem('Donor_Data');
-			//var donorObj=data;
 		    var donarObj = JSON.parse(data);
 			console.log(donarObj);
-			//donarObj.donor_id
 			var amount = $("#amount").val();
-			console.log("amountfunded=>" + amount);
-			console.log("request_Id=>" + requestId);
-			console.log("donor_Id=>" + donarObj.donorId);
-			var formData ="amountfunded=" + amount + "&request_Id=" + requestId + "&donor_Id=" + donarObj.donorId;
-			var url = "http://localhost:8080/charity-api/Transactionservlet?"+ formData;
-			//var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Transactionservlet?"+ formData;
+			console.log("amount=>" + amount);
+			console.log("requestId=>" + requestId);
+			console.log("donorId=>" + donarObj.donorId);
+			var formData ="amount=" + amount + "&requestId=" + requestId + "&donorId=" + donarObj.donorId;
+			var url = "http://localhost:8080/charityapp/TransactionServlet?"+ formData;
 			$.get(url, function(data) {
 				console.log('transaction success!');
 				console.log(data);
 				alert('transaction success!');
 				window.location.replace('donorfundingDetails.jsp');
 			});
-
 		}
-
 		function ListRequest() {
 			event.preventDefault();
-			var Fund_Type = $('#Fund_Type').val();
-			var formData = "Fund_type=" + Fund_Type;
-			var url = "http://localhost:8080/charity-api/Requesttypeservlet?" + formData;
-			//var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Requesttypeservlet?" + formData;
+			var fundType = $('#fundType').val();
+			var formData = "fundType=" + fundType;
+			var url = "http://localhost:8080/charityapp/ListFundedDonorServlet?" + formData;
 			console.log(url);
 			$.getJSON(url,function(datas) {
-								//var res=JSON.parse(datas);
-								var res= datas;
+								var res=JSON.parse(datas);
 								console.log(datas);
 								var tbody = $('#requestTable');
 								var content = "";
@@ -90,9 +86,7 @@
 									content += '</td><td>';
 									content += data.amountneeded
 									content += '</td><td>';
-									content += data.expireDate.day + "-"
-											+ data.expireDate.month + "-"
-											+ data.expireDate.year;
+									content += data.expireDate.day+"-"+data.expireDate.month+"-"+data.expireDate.year;
 									content += '</td><td>';
 									content += '<input type="number" id="amount" placeholder="amountfunded"/>';
 									content += '</td><td>';
@@ -101,8 +95,7 @@
 									content += '</td></tr>';
 								}
 								console.log(content);
-								tbody.html(content);
-								 
+								tbody.html(content); 
 							});
 		}
 	</script>

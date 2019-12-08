@@ -14,7 +14,7 @@
                             <a class="nav-link" href="adminLogin.jsp">Admin Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Donorlogin.jsp">Donor Login</a>
+                            <a class="nav-link" href="donorlogin.jsp">Donor Login</a>
                         </li>
                 </div>
             </nav>

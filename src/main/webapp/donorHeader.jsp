@@ -7,10 +7,10 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="Donorlogin.jsp">Donor Login</a>
+                            <a class="nav-link" href="donorlogin.jsp">Donor Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="DonorHome.jsp">Fund Transaction</a>
+                            <a class="nav-link" href="donorHome.jsp">Fund Transaction</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="donorfundingDetails.jsp">Fund Details</a>

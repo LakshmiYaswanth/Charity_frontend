@@ -10,16 +10,16 @@
                     <a class="nav-link" href="adminLogin.jsp">Home</a>
                          </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="AdminHome.jsp">Admin Home</a>
+                            <a class="nav-link" href="adminHome.jsp">Admin Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Listdonors.jsp">Donor List</a>
+                            <a class="nav-link" href="listdonors.jsp">Donor List</a>
                         </li>
                          <li class="nav-item">
-                            <a class="nav-link" href="ListRequest.jsp">Request List</a>
+                            <a class="nav-link" href="listRequest.jsp">Request List</a>
                         </li>
                          <li class="nav-item">
-                            <a class="nav-link" href="UpdateRequest.jsp">Update Request</a>
+                            <a class="nav-link" href="updateRequest.jsp">Update Request</a>
                         </li>
                         <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>

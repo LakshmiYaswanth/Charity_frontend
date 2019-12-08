@@ -57,18 +57,18 @@ function adminLogin()
             	alert("Please fill all fields...!!!!!!");
             	}else{
             var formData ="name="+name+"&password="+password;
-            var url="http://localhost:8080/charity-api/Adminloginservlet?"+formData;
+            var url="http://localhost:8080/charityapp/AdminloginServlet?"+formData;
             //var url= "http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Adminloginservlet?"+formData;
             	 $.getJSON(url,function(data){
                 	 resData = (data);
-                	 console.log("resData=>"+resData);
-                     if(resData.isLoggedin == false) {
+                	 console.log("resData=>"+JSON.stringify(resData));
+                     if(resData == null) {
                     	 $('input[type="text"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
                     	 $('input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 3px red"});
                     	 alert("Invalid username or password");
-                    	 }else if(resData.isLoggedin == true){
+                    	 }else{
 	                    	 alert("Admin Login success");
-	                    	 window.location.replace('AdminHome.jsp');
+	                    	 window.location.replace('adminHome.jsp');
 	                         localStorage.setItem('admin_Data',JSON.stringify(data));
                     	 }
             	 });

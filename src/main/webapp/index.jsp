@@ -17,7 +17,7 @@
             <img id="myimage" src="asserts/pics/charity.jpg" alt="The unplash" width="304" height="228">
               <p id="demo"></p>
             <p>Lets Help people,Save people. </p>
-           <a href="DonorRegister.jsp" class="btn btn-outline-secondary"> Donor Register Here</a>
+           <a href="donorRegister.jsp" class="btn btn-outline-secondary"> Donor Register Here</a>
         </div>
     </div>
     </div>

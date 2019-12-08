@@ -56,7 +56,7 @@
                  <button type="submit"class="btn btn-outline-secondary">Register</button>
                 <input type="reset" class="btn btn-outline-danger"/>
                 </form>
-                <p>Already using this App?Sign in <a href="Donorlogin.jsp">Click here</a>.</p>
+                <p>Already using this App?Sign in <a href="donorlogin.jsp">Click here</a>.</p>
         </div>
     </div>
     
@@ -73,12 +73,12 @@ function donorRegister()
     let password = $('#password').val();
     let Age = $('#Age').val();
     var formData = "name="+name+"&email="+email+"&password="+password+"&Age="+Age;
-    var url = "http://localhost:8080/charity-api/Donorregisterservlet?" + formData;
+    var url = "http://localhost:8080/charityapp/DonorRegisterServlet?" + formData;
     //var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Donorregisterservlet?" + formData;
     console.log(url);
     $.getJSON(url,function(response){
        alert('register success!'); 
-       window.location.replace('Donorlogin.jsp');
+       window.location.replace('donorlogin.jsp');
     });
 } 
 </script>

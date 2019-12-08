@@ -47,7 +47,7 @@
                                 Expire date
                             </div>
                         </div>
-                        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
+                        <input type="date" id="expireDate" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-outline-secondary">Send</button>
@@ -80,7 +80,7 @@
         console.log("expiredate=>"+date);
         var formData = "adminId="+AdminId+"&fundType="+FundType+"&amount="+amount+"&date="+date;
         console.log(formData);
-        var url = "http://localhost:8080/charity-api/Requestservlet?"+formData;
+        var url = "http://localhost:8080/charityapp/FundRequestServlet?"+formData;
         //var url= "http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Requestservlet?"+formData;
         $.get(url,function(data){
             console.log(data)

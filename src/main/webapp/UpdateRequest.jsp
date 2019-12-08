@@ -57,7 +57,7 @@
                                 Expire date
                             </div>
                         </div>
-                        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
+                        <input type="date" id="date" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-outline-secondary">Send</button>
@@ -74,14 +74,14 @@
     let requestId = $('#requestId').val();
     let fundType = $('#fundType').val();
     let amount = $('#amount').val();
-    let date = $('#expireDate').val();
+    let date = $('#date').val();
     var formData = "requestId="+requestId+"&fundType="+fundType+"&amount="+amount+"&date="+date;
-    var url = "http://localhost:8080/charity-api/Requestupdateservlet?" + formData;
+    var url = "http://localhost:8080/charityapp/updateFundRequestServlet?" + formData;
     //var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Requestupdateservlet?" + formData;
     console.log(url);
     $.getJSON(url,function(response){
        alert('Update success!'); 
-       window.location.replace('AdminHome.jsp');
+       window.location.replace('adminHome.jsp');
     });
 } 
 </script> 

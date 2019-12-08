@@ -35,7 +35,7 @@
             </div>
             <button type="submit" class="btn btn-outline-secondary" onclick="donorLogin()">Login</button>
            <input type="reset" class="btn btn-outline-danger"/>
-            <p><a href="DonorRegister.jsp">Forgot password</a></p>
+            <p><a href="donorRegister.jsp">Forgot password</a></p>
         </div>
     </div>
     </form>
@@ -49,20 +49,20 @@ function donorLogin()
             var name = $('#name').val();
             var password = $('#password').val();
             var formData = "name="+name+"&password="+password;
-            var url = "http://localhost:8080/charity-api/Donorloginservlet?"+formData;
+            var url = "http://localhost:8080/charityapp/DonorLoginServlet?"+formData;
             //var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Donorloginservlet?"+formData
                         $.getJSON(url,function(data){
                        	 console.log(data);
                        	 //resData = JSON.parse(data);
                        	 resData = data;
-                    	 console.log("resData=>"+resData);
-                         if(resData.isloggedIn == false) {
+                    	 console.log("resData=>"+JSON.stringify(resData));
+                         if(resData == null) {
                         	 $('input[type="text"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
                         	 $('input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 5px #00F5FF"});
                         	 alert("Invalid username or password");
-                        	 }else if(resData.isloggedIn == true){
+                        	 }else{
                             alert("donor Login success");
-                               window.location.replace('DonorHome.jsp');
+                               window.location.replace('donorHome.jsp');
                                 localStorage.setItem('Donor_Data',JSON.stringify(resData));
                         	 }
                        	 

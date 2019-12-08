@@ -37,10 +37,9 @@
         var data = localStorage.getItem('Donor_Data');
         var donorData = JSON.parse(data);
         var formData = "name="+donorData.name;
-        let url = "http://localhost:8080/charity-api/DonorFundingList?"+formData;
+        let url = "http://localhost:8080/charityapp/DonorFundinglistServlet?"+formData;
         //let url="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/DonorListservlet";
         $.getJSON(url,(res)=>{
-           
 	        var donarObj = res;
 		    console.log(donarObj);
 		    //console.log("name=>" + donarObj.name);
