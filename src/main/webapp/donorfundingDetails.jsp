@@ -11,6 +11,7 @@
 	<jsp:include page="donorHeader.jsp"></jsp:include>
 	<div class="row justify-content-center">
 		<div class="col-md-8">
+		<h5 align="center">donor fund Details</h5>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -23,22 +24,16 @@
 			</table>
 		</div>
 	</div>
-	<script src="asserts/js/jquery-3.4.1.min.js"></script>
-	<script src="asserts/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery-3.4.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 	<script>
-	function logout()
-	{
-	  	console.log('logout success!');
-	  	localStorage.clear();
-	  	window.location.replace("index.jsp");
-	}
+	
 	$(function donerlist(){
         console.log('This is jquery!');
         var data = localStorage.getItem('Donor_Data');
         var donorData = JSON.parse(data);
         var formData = "name="+donorData.name;
         let url = "http://localhost:8080/charityapp/DonorFundinglistServlet?"+formData;
-        //let url="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/DonorListservlet";
         $.getJSON(url,(res)=>{
 	        var donarObj = res;
 		    console.log(donarObj);

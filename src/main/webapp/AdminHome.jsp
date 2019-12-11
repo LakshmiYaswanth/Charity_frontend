@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="asserts/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <title>Document</title>
         
 </head>
@@ -13,7 +13,7 @@
         <form onsubmit="request()">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h5>Fund request</h5>
+                <h5 align="center">Fund request</h5>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -21,13 +21,7 @@
                                 Fund Type
                             </div>
                         </div>
-                        <select id="FundType" class="form-control">
-                            <option>--Fund type--</option>
-                            <option value="CLOTHS">Cloths</option>
-                            <option value="FOOD">Food</option>
-                            <option value="MEDICAL">Medical</option>
-                            <option value="OTHERS">Others</option>
-                        </select>
+                         <input type="text" name="fundType" pattern="[A-Za-z]{1,40}$" id="FundType" class="form-control" placeholder="FundType" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -50,20 +44,17 @@
                         <input type="date" id="expireDate" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-outline-secondary">Send</button>
+                
+                 <div class="form-group text-center" >
+                <button type="submit" class="btn btn-primary btn-lg center-block" >Send</button>
+                </div>  
             </div>
         </div>
-    </form>
-    <script src="asserts/js/jquery-3.4.1.min.js"></script>
-  	<script src="asserts/js/bootstrap.min.js"></script>
+        </form>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+  	<script src="assets/js/bootstrap.min.js"></script>
   	<script>
-  	console.log();
-  	function logout()
-  	{
-  	  	console.log('logout success!');
-  	  	localStorage.clear();
-  	  	window.location.replace("index.jsp");
-  	}
+ 
   	function request()
     {
   	    event.preventDefault();
@@ -80,9 +71,8 @@
         console.log("expiredate=>"+date);
         var formData = "adminId="+AdminId+"&fundType="+FundType+"&amount="+amount+"&date="+date;
         console.log(formData);
-        var url = "http://localhost:8080/charityapp/FundRequestServlet?"+formData;
-        //var url= "http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Requestservlet?"+formData;
-        $.get(url,function(data){
+        var url = "http://localhost:8080/charityapp/FundRequestServlet";
+        $.post(url,formData).then (function(data){
             console.log(data)
             alert('fund request success');
             console.log('fund request success!');

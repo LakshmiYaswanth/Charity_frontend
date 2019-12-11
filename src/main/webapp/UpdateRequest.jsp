@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="asserts/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <title>Document</title>
         
 </head>
@@ -13,7 +13,7 @@
         <form onsubmit="Updaterequest()">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h5>Fund request</h5>
+                <h5 align="center">Fund request</h5>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -31,13 +31,7 @@
                                 Fund Type
                             </div>
                         </div>
-                        <select id="fundType" class="form-control">
-                            <option>--Fund type--</option>
-                            <option value="CLOTHS">Cloths</option>
-                            <option value="FOOD">Food</option>
-                            <option value="MEDICAL">Medical</option>
-                            <option value="OTHERS">Others</option>
-                        </select>
+                         <input type="text" name="fundType" pattern="[A-Za-z]{1,40}$" id="FundType" class="form-control" placeholder="FundType" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -60,12 +54,14 @@
                         <input type="date" id="date" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-outline-secondary">Send</button>
+                 <div class="form-group text-center" >
+                <button type="submit" class="btn btn-primary btn-lg center-block" >Send</button>
+                </div>  
             </div>
         </div>
     </form>
-    <script src="asserts/js/jquery-3.4.1.min.js"></script>
-  	<script src="asserts/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+  	<script src="assets/js/bootstrap.min.js"></script>
   	<script>
   	console.log();
   	function Updaterequest()
@@ -76,12 +72,11 @@
     let amount = $('#amount').val();
     let date = $('#date').val();
     var formData = "requestId="+requestId+"&fundType="+fundType+"&amount="+amount+"&date="+date;
-    var url = "http://localhost:8080/charityapp/updateFundRequestServlet?" + formData;
-    //var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Requestupdateservlet?" + formData;
+    var url = "http://localhost:8080/charityapp/updateFundRequestServlet";
     console.log(url);
-    $.getJSON(url,function(response){
+    $.post(url,formData).then (function(response){
        alert('Update success!'); 
-       window.location.replace('adminHome.jsp');
+       //window.location.replace('adminHome.jsp');
     });
 } 
 </script> 

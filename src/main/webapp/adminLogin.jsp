@@ -33,13 +33,17 @@
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password"required>
                 </div>
             </div>
+            <div>
             <button type="submit" class="btn btn-outline-secondary" onclick="adminLogin()">Login</button>
             <input type="reset" class="btn btn-outline-danger"/>
+            </div>
+            <br>
             </form>
+            </div>
         </div>
     </div>
-     <script src="asserts/js/jquery-3.4.1.min.js"></script>
-  	<script src="asserts/js/bootstrap.min.js"></script>
+     <script src="assets/js/jquery-3.4.1.min.js"></script>
+  	<script src="assets/js/bootstrap.min.js"></script>
 <script>
 
 
@@ -57,14 +61,14 @@ function adminLogin()
             	alert("Please fill all fields...!!!!!!");
             	}else{
             var formData ="name="+name+"&password="+password;
-            var url="http://localhost:8080/charityapp/AdminloginServlet?"+formData;
-            //var url= "http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Adminloginservlet?"+formData;
-            	 $.getJSON(url,function(data){
-                	 resData = (data);
+            var url="http://localhost:8080/charityapp/AdminloginServlet";
+            	 $.post(url,formData).then (function(data){
+                	var resData = data;//JSON.parse(data);
                 	 console.log("resData=>"+JSON.stringify(resData));
-                     if(resData == null) {
+                     if(resData.errorMessage!=null) {
                     	 $('input[type="text"]').css({"border":"2px solid red","box-shadow":"0 0 3px red"});
                     	 $('input[type="password"]').css({"border":"2px solid #00F5FF","box-shadow":"0 0 3px red"});
+                    	 $('#err').html(data.errorMessage);
                     	 alert("Invalid username or password");
                     	 }else{
 	                    	 alert("Admin Login success");

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="asserts/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <title>Donor Register</title>
 </head>
 <body class="bg-light">
@@ -53,15 +53,16 @@
                             <input type="number" min="10" max="100"  name="Age" id="Age" class="form-control" placeholder="Age" required/>
                         </div>
                     </div>
-                 <button type="submit"class="btn btn-outline-secondary">Register</button>
+                 <button type="submit"class="btn btn-outline-primary">Register</button>
                 <input type="reset" class="btn btn-outline-danger"/>
+                <br>
                 </form>
                 <p>Already using this App?Sign in <a href="donorlogin.jsp">Click here</a>.</p>
         </div>
     </div>
     
-    <script src="asserts/js/jquery-3.4.1.min.js"></script>
-  	<script src="asserts/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+  	<script src="assets/js/bootstrap.min.js"></script>
 <script>
 
 
@@ -73,12 +74,11 @@ function donorRegister()
     let password = $('#password').val();
     let Age = $('#Age').val();
     var formData = "name="+name+"&email="+email+"&password="+password+"&Age="+Age;
-    var url = "http://localhost:8080/charityapp/DonorRegisterServlet?" + formData;
-    //var url ="http://ec2-13-127-195-177.ap-south-1.compute.amazonaws.com:8080/charity-api/Donorregisterservlet?" + formData;
+    var url = "http://localhost:8080/charityapp/DonorRegisterServlet";
     console.log(url);
-    $.getJSON(url,function(response){
-       alert('register success!'); 
-       window.location.replace('donorlogin.jsp');
+    $.post(url,formData).then (function(response){
+       alert('register success!');
+      window.location.replace('donorlogin.jsp');
     });
 } 
 </script>
