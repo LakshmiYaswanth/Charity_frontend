@@ -21,6 +21,8 @@
 						<th>Fund Type</th>
 						<th>Amount(Rs)</th>
 						<th>Expire Date</th>
+						<th>Description</th>
+						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody id="requestList"></tbody>
@@ -35,7 +37,7 @@
         let url = "http://localhost:8080/charityapp/ListFundRequestServlet";
         $.getJSON(url,(res)=>{
         	 console.log("res=>"+res);
-             //var data = JSON.parse(res);
+            // var data = JSON.parse(res);
              var data=res;
              let requestList = "";
              for(let don of data)
@@ -44,6 +46,8 @@
                  requestList += "<td>"+don.fundType+"</td>";
                  requestList += "<td>"+don.amount+"</td>";
                  requestList += "<td>"+don.expireDate.day+"/"+don.expireDate.month+"/"+don.expireDate.year+"</td>";
+                 requestList += "<td>"+don.description+"</td>";
+                 requestList += "<td>"+don.status+"</td>";
                  requestList += "</tr>";
              }
              $('#requestList').html(requestList);

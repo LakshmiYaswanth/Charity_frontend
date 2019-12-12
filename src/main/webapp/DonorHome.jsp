@@ -24,10 +24,11 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Fund_Type</th>
+						<th>Fund Type</th>
+						<th>Description</th>
 						<th>Amount(Rs)</th>
 						<th>Expired Date</th>
-						<th>Amountfunded(Rs)</th>
+						<th>Amount Funded(Rs)</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -95,7 +96,7 @@
 			var url = "http://localhost:8080/charityapp/ListFundedDonorServlet?" + formData;
 			console.log(url);
 			$.getJSON(url,function(datas) {
-								var res=JSON.parse(datas);
+								var res=(datas);
 								console.log(datas);
 								var tbody = $('#requestTable');
 								var content = "";
@@ -104,8 +105,8 @@
 								{
 									content += '<tr><td>';
 									content += data.fundType;
-										
-									
+									content += '</td><td>';
+									content += data.description;
 									content += '</td><td>';
 									content += data.amountneeded
 									content += '</td><td>';

@@ -18,20 +18,37 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                RequestId
+                                Request Id
                             </div>
                         </div>
                         <input type="number" min="1" name="requestId" id="requestId" class="form-control" placeholder="requestId" required>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                FUND TYPE<i class="text-danger">*</i>
+                            </div>
+                        </div>
+                        <select id="requestType" class="form-control" required>
+                            <option value="">--SELECT--</option>
+                            <option value="EDUCATION">Education</option>
+                            <option value="FOOD">Food</option>
+                            <option value="MEDICAL">Medical</option>
+                            <option value="AGRICULTURE">Agriculture</option>
+                            <option value="OTHERS">Others</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Fund Type
+                                Description
                             </div>
                         </div>
-                         <input type="text" name="fundType" pattern="[A-Za-z]{1,40}$" id="FundType" class="form-control" placeholder="FundType" required>
+                         <input type="text" name="description" pattern="[A-Za-z -]{1,100}$" id="description" class="form-control" placeholder="description" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -48,7 +65,7 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Expire date
+                                Expire Date
                             </div>
                         </div>
                         <input type="date" id="date" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>

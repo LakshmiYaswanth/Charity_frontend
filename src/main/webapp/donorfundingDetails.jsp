@@ -16,8 +16,9 @@
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>Fund type</th>
-						<th>Amount_Funded(Rs)</th>
+						<th>Fund Type</th>
+						<th>Amount Funded(Rs)</th>
+						<th>Funded Date</th>
 					</tr>
 				</thead>
 				<tbody id="fundingDetails"></tbody>
@@ -32,18 +33,19 @@
         console.log('This is jquery!');
         var data = localStorage.getItem('Donor_Data');
         var donorData = JSON.parse(data);
-        var formData = "name="+donorData.name;
+        var formData = "email="+donorData.email;
         let url = "http://localhost:8080/charityapp/DonorFundinglistServlet?"+formData;
         $.getJSON(url,(res)=>{
 	        var donarObj = res;
 		    console.log(donarObj);
-		    //console.log("name=>" + donarObj.name);
+		    console.log("email=>" + donarObj.email);
             let donorList = "";
             for(let donor of donarObj)
             {
                 donorList += "<tr><td>"+donor.name+"</td>";
                 donorList += "<td>"+donor.request.fundType+"</td>";
                 donorList += "<td>"+donor.transaction.amountfunded+"</td>";
+                donorList += "<td>"+donor.transaction.fundedDate+"</td>";
                 donorList += "</tr>";
             }
             $('#fundingDetails').html(donorList);

@@ -17,10 +17,10 @@
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            UserName
+                            EMAIL ID
                         </div>
                     </div>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Name"required/>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Email"required/>
                 </div>
             </div>
             <div class="form-group">

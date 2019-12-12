@@ -18,17 +18,34 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Fund Type
+                                FUND TYPE<i class="text-danger">*</i>
                             </div>
                         </div>
-                         <input type="text" name="fundType" pattern="[A-Za-z]{1,40}$" id="FundType" class="form-control" placeholder="FundType" required>
+                        <select id="requestType" class="form-control" required>
+                            <option value="">--SELECT--</option>
+                            <option value="EDUCATION">Education</option>
+                            <option value="FOOD">Food</option>
+                            <option value="MEDICAL">Medical</option>
+                            <option value="AGRICULTURE">Agriculture</option>
+                            <option value="OTHERS">Others</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Amount(Rs)
+                                DESCRIPTION<i class="text-danger">*</i>
+                            </div>
+                        </div>
+                         <input type="text" name="description" pattern="[A-Za-z -]{1,40}$" id="description" class="form-control" placeholder="description" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                Amount(Rs)<i class="text-danger">*</i>
                             </div>
                         </div>
                         <input type="number" name="amount"min=1   id="amount" class="form-control" placeholder="Amount" required>
@@ -38,13 +55,12 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Expire date
+                                Expire Date<i class="text-danger">*</i>
                             </div>
                         </div>
                         <input type="date" id="expireDate" name="trip-start" value="2018-07-22" min="2018-01-01" max="2022-12-31" class="form-control" required>
                     </div>
                 </div>
-                
                  <div class="form-group text-center" >
                 <button type="submit" class="btn btn-primary btn-lg center-block" >Send</button>
                 </div>  
@@ -63,13 +79,15 @@
 		//var id = JSON.stringify(adminData);
     	var AdminId = adminData.adminId;
         var FundType = $('#FundType').val();
+        var description=$('#description').val();
         var amount = $('#amount').val();
         var date = $('#expireDate').val();
         console.log("adminId=>"+AdminId);
         console.log("fundType=>"+FundType);
+        console.log("description=>"+description);
         console.log("amount=>"+amount);
         console.log("expiredate=>"+date);
-        var formData = "adminId="+AdminId+"&fundType="+FundType+"&amount="+amount+"&date="+date;
+        var formData = "adminId="+AdminId+"&fundType="+FundType+"&amount="+amount+"&date="+date+"&description="+description;
         console.log(formData);
         var url = "http://localhost:8080/charityapp/FundRequestServlet";
         $.post(url,formData).then (function(data){
