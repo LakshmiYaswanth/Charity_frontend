@@ -21,13 +21,14 @@
                                 FUND TYPE<i class="text-danger">*</i>
                             </div>
                         </div>
-                        <select id="requestType" class="form-control" required>
+                        <select id="fundType" class="form-control" required>
                             <option value="">--SELECT--</option>
-                            <option value="EDUCATION">Education</option>
-                            <option value="FOOD">Food</option>
-                            <option value="MEDICAL">Medical</option>
-                            <option value="AGRICULTURE">Agriculture</option>
-                            <option value="OTHERS">Others</option>
+                            <option value="1">Education</option>
+                            <option value="2">Food</option>
+                            <option value="3">Medical</option>
+                            <option value="4">Daily Needs</option>
+                            <option value="5">Agriculture</option>
+                            <option value="6">Others</option>
                         </select>
                     </div>
                 </div>
@@ -78,16 +79,16 @@
 		var adminData = JSON.parse(data);
 		//var id = JSON.stringify(adminData);
     	var AdminId = adminData.adminId;
-        var FundType = $('#FundType').val();
+        var FundTypeId = $('#fundType').val();
         var description=$('#description').val();
         var amount = $('#amount').val();
         var date = $('#expireDate').val();
         console.log("adminId=>"+AdminId);
-        console.log("fundType=>"+FundType);
+        console.log("fundTypeId=>"+FundTypeId);
         console.log("description=>"+description);
         console.log("amount=>"+amount);
         console.log("expiredate=>"+date);
-        var formData = "adminId="+AdminId+"&fundType="+FundType+"&amount="+amount+"&date="+date+"&description="+description;
+        var formData = "adminId="+AdminId+"&fundTypeId="+FundTypeId+"&amount="+amount+"&date="+date+"&description="+description;
         console.log(formData);
         var url = "http://localhost:8080/charityapp/FundRequestServlet";
         $.post(url,formData).then (function(data){

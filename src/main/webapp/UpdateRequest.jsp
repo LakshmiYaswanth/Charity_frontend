@@ -31,13 +31,14 @@
                                 FUND TYPE<i class="text-danger">*</i>
                             </div>
                         </div>
-                        <select id="requestType" class="form-control" required>
+                        <select id="fundType" class="form-control" required>
                             <option value="">--SELECT--</option>
-                            <option value="EDUCATION">Education</option>
-                            <option value="FOOD">Food</option>
-                            <option value="MEDICAL">Medical</option>
-                            <option value="AGRICULTURE">Agriculture</option>
-                            <option value="OTHERS">Others</option>
+                            <option value="1">Education</option>
+                            <option value="2">Food</option>
+                            <option value="3">Medical</option>
+                            <option value="4">Daily Needs</option>
+                            <option value="5">Agriculture</option>
+                            <option value="6">Others</option>
                         </select>
                     </div>
                 </div>

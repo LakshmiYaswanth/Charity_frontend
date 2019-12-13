@@ -67,7 +67,7 @@ function adminRegister()
     console.log(url);
     $.post(url,formData).then (function(response){
        alert('register success!');
-      //window.location.replace('adminLogin.jsp');
+      window.location.replace('adminLogin.jsp');
     });
 } 
 </script>

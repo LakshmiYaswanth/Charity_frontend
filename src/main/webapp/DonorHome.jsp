@@ -72,12 +72,12 @@
 								console.log(datas);
 								var tbody = $('#requestTable');
 								var content = "";
-								var fundTypes = _.uniq(_.pluck(datas,'fundType'));
-								console.log("FundTypes", fundTypes);
+								
+								console.log("FundTypes", datas);
 								var options = "";
-								for( let ft of fundTypes){
-									options += '<option>';
-									options +=  ft
+								for( let ft of datas){
+									options += "<option value="+ft.fundTypeId+">";
+									options +=  ft.fundType;
 									options += '</option>';
 
 								}
@@ -104,7 +104,7 @@
 								for(let data of res)
 								{
 									content += '<tr><td>';
-									content += data.fundType;
+									content += data.requestType.fundType;
 									content += '</td><td>';
 									content += data.description;
 									content += '</td><td>';

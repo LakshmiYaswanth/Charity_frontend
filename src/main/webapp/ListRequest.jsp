@@ -43,7 +43,7 @@
              for(let don of data)
              {
                  requestList += "<tr><td>"+don.requestId+"</td>";
-                 requestList += "<td>"+don.fundType+"</td>";
+                 requestList += "<td>"+don.requestType.fundType+"</td>";
                  requestList += "<td>"+don.amount+"</td>";
                  requestList += "<td>"+don.expireDate.day+"/"+don.expireDate.month+"/"+don.expireDate.year+"</td>";
                  requestList += "<td>"+don.description+"</td>";

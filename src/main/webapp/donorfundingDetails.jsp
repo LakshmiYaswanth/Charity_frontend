@@ -43,7 +43,7 @@
             for(let donor of donarObj)
             {
                 donorList += "<tr><td>"+donor.name+"</td>";
-                donorList += "<td>"+donor.request.fundType+"</td>";
+                donorList += "<td>"+donor.requesttype.fundType+"</td>";
                 donorList += "<td>"+donor.transaction.amountfunded+"</td>";
                 donorList += "<td>"+donor.transaction.fundedDate+"</td>";
                 donorList += "</tr>";
