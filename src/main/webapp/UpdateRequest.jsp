@@ -28,17 +28,18 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                FUND TYPE<i class="text-danger">*</i>
+                                Fund Type<i class="text-danger">*</i>
                             </div>
                         </div>
                         <select id="fundType" class="form-control" required>
                             <option value="">--SELECT--</option>
                             <option value="1">Education</option>
                             <option value="2">Food</option>
-                            <option value="3">Medical</option>
-                            <option value="4">Daily Needs</option>
-                            <option value="5">Agriculture</option>
-                            <option value="6">Others</option>
+                            <option value="3">Cloths</option>
+                            <option value="4">Medical</option>
+                            <option value="5">Daily Needs</option>
+                            <option value="6">Agriculture</option>
+                            <option value="7">Others</option>
                         </select>
                     </div>
                 </div>
@@ -94,7 +95,6 @@
     console.log(url);
     $.post(url,formData).then (function(response){
        alert('Update success!'); 
-       //window.location.replace('adminHome.jsp');
     });
 } 
 </script> 

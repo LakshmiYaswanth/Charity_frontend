@@ -17,7 +17,7 @@
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            EMAIL ID
+                            Email Id
                         </div>
                     </div>
                     <input type="text" name="name" id="name" class="form-control" placeholder="Email"required/>

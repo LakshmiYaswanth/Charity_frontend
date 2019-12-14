@@ -17,7 +17,7 @@
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            EMAIL ID
+                            Email Id
                         </div>
                     </div>
                     <input type="Name" name=" name" id="name" class="form-control" placeholder="Name" required/>
@@ -27,7 +27,7 @@
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
-                            PASSWORD
+                            Password
                         </div>
                     </div>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>

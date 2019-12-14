@@ -14,7 +14,7 @@
     <div class="row justify-content-center align-items-center" style="height: 80vh;margin:0;">
         <div class="col-md-8 text-center">
             <h5>Welcome to Funding application</h5>
-            <img id="myimage" src="assets/pics/charity.jpg" alt="The unplash" width="304" height="228">
+            <img id="myimage" src="assets/pics/charity.jpg" alt="The unplash" width="400" height="250">
               <p id="demo"></p>
             <p>Lets Help people,Save people. </p>
             <a href="adminRegister.jsp" class="btn btn-outline-secondary">Admin Register Here</a>

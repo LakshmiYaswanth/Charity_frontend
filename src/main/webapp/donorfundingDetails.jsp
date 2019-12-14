@@ -11,7 +11,7 @@
 	<jsp:include page="donorHeader.jsp"></jsp:include>
 	<div class="row justify-content-center">
 		<div class="col-md-8">
-		<h5 align="center">donor fund Details</h5>
+		<h5 align="center">Donor Fund Details</h5>
 			<table class="table table-hover">
 				<thead>
 					<tr>
